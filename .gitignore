@@ -1,0 +1,16 @@
+# Kazuki_module/ .gitignore (この内容でファイルを作成)
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+.venv/
+env/
+.env/
+
+# Build artifacts (pip install -e . で作られるものを含む)
+build/
+dist/
+*.egg-info/
