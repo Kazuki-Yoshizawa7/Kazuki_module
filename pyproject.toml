@@ -1,20 +1,20 @@
-
+[project]
+name = "kazuki_module"
+version = "0.1.0"
+description = "Kazuki's combined utilities"
+requires-python = ">=3.9"
+authors = [
+    { name="Kazuki Yoshizawa" }
+]
 
 [build-system]
-# このパッケージをビルドするために必要なツールを指定
-requires = ["setuptools>=64.0"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
-[project]
-# パッケージの基本情報 (setup.pyのname, versionなど)
-name = "Kazustat"
-version = "0.1.0"
-# (オプション) 必要に応じて追加
-# description = "My custom statistics package"
-# authors = [
-#   { name="Kazuki Yoshizawa", email="your_email@example.com" },
-# ]
+[tool.setuptools]
+# PEP621 では packages はここに書く
+[tool.setuptools.packages]
+find = {}
 
-[tool.setuptools.packages.find]
-# パッケージを自動検出する設定 (setup.pyのfind_packages()に相当)
-where = ["."]  # "." は、pyproject.toml と同じ階層を探すという意味
+# find_namespace = true にする場合：
+#find = {namespaces = true}

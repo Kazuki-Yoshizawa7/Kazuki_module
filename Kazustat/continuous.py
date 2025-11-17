@@ -67,6 +67,8 @@ class Continuous:
     def _qqplot(self,col_names:  Union[str, List[str]], show=False):  # multiple columns and plot
 
         data = self.df[col_names].dropna()
+
+        # 分岐　ncol=1 or 2≤
         n_cols = len(data.columns)
         fig,ax=plt.subplots(n_cols,1,figsize=(8, 5 * n_cols))
 
