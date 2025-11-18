@@ -71,7 +71,7 @@ class Sobelfilter:
         error_mask = self.label_ar != self.pred_ar 
         boundary_errors = error_mask & label_edges
         interior_errors = error_mask & (~label_edges)
-        ignore_mask = np.isnan(label_img_display)
+        #ignore_mask = np.isnan(label_img_display)
 
     
         vis = np.zeros((self.label_ar.shape[0], self.label_ar.shape[1], 3), dtype=np.float32) #RGBのカラーをこの後指定することができる
