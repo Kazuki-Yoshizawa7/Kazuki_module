@@ -75,4 +75,5 @@ class LogiticRegression:
         
         df['err_lower']=df['ORs']-df['CI_Lower']
         df['err_upper']=df['CI_Upper']-df['ORs']
+
         
