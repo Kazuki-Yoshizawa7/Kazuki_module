@@ -21,6 +21,9 @@ class LogitClassify:
     def __init__(self,df,ranking_df):
         if df.empty:
             raise ValueError("入力されたDataFrameが空です。")
+        
+        # self.df = df
+        # self.ranking_df = ranking_df
     
 
     def _logit_classify(self,df,ranking_df):
@@ -282,7 +285,7 @@ class LogitClassify:
 
     """
 
-    TypeをGT、Object、Border,NAに分類する
+    TypeをGT、Object、Border,NAに分類する Typeに分類されたDataFrameを受け取ってさらに追加していく形
 
     """
 

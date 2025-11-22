@@ -2,9 +2,12 @@ from .cityscapes_loader import Cityscapesloading
 from .sobel_filter import Sobelfilter
 from .logit_classify import LogitClassify
 from .logit_ranking import LogitRanking
+from .show_pred import WithoutGT
+
 __all__ = [
     "Cityscapesloading",
     "Sobelfilter",
     "LogitClassify",
-    "LogitRanking"
+    "LogitRanking",
+    "WithoutGT"
 ]
