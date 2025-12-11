@@ -94,7 +94,20 @@ class WithoutGT:
             if type == 'difference':
                 #DF1['difference'] = DF1[f'class_{pred}'] - DF1[f'class_{logit_2}'] # ２番目に高いLogitとの差をとっている
                 DF2['difference'] = abs(DF2[f'class_{pred}'] - DF2[f'class_{label}'])
-                DF3['difference'] = abs(DF3[f'class_{pred}'] - DF3[f'class_{label}'])
+                # --- DF3 の計算 (ループ版) ---
+                data_3_list = []
+                for i in range(len(DF3)):
+                    row = DF3.iloc[i]
+                    p = row['pred']
+                    l = row['label']
+                    # その行ごとのPredとLabelの値を取得
+                    val = abs(row[f'class_{p}'] - row[f'class_{l}'])
+                    data_3_list.append(val)
+                
+                # ★ ここで代入します
+                DF3['difference'] = np.array(data_3_list)
+                
+                #DF3['difference'] = abs(DF3[f'class_{pred}'] - DF3[f'class_{label}'])
 
                 fig, ax = plt.subplots(6,1, figsize=(10,18))
                 
@@ -284,7 +297,21 @@ class WithoutGT:
             if type == 'difference':
                 #DF1['difference'] = DF1[f'class_{pred}'] - DF1[f'class_{logit_2}'] # ２番目に高いLogitとの差をとっている
                 DF2['difference'] = abs(DF2[f'class_{pred}'] - DF2[f'class_{label}'])
-                DF3['difference'] = abs(DF3[f'class_{pred}'] - DF3[f'class_{label}'])
+                # DF3['difference'] = abs(DF3[f'class_{pred}'] - DF3[f'class_{label}'])
+                # ここの部分の計算正確に！
+                
+                # --- DF3 の計算 (ループ版) ---
+                data_3_list = []
+                for i in range(len(DF3)):
+                    row = DF3.iloc[i]
+                    p = row['pred']
+                    l = row['label']
+                    # その行ごとのPredとLabelの値を取得
+                    val = abs(row[f'class_{p}'] - row[f'class_{l}'])
+                    data_3_list.append(val)
+                
+                # ★ ここで代入します
+                DF3['difference'] = np.array(data_3_list)
 
                 df_list.extend([DF1, DF2, DF3])
 
@@ -367,7 +394,20 @@ class WithoutGT:
                 
                 data_1 = DF1['difference_1'].to_numpy()
                 data_2 = abs(DF2[f'class_{pred}'] - DF2[f'class_{label}']).to_numpy()
-                data_3 = abs(DF3[f'class_{pred}'] - DF3[f'class_{label}']).to_numpy()
+
+
+                # ここの部分の計算正確に！
+
+                data_3_list = []
+                for i in range(len(DF3)):
+                    row = DF3.iloc[i]
+                    pred = row['pred']
+                    label = row['label']
+
+                    data_3_list.append(abs(row[f'class_{pred}'] - row[f'class_{label}']))
+                data_3 = np.array(data_3_list)
+
+                #data_3 = abs(DF3[f'class_{pred}'] - DF3[f'class_{label}']).to_numpy()
             
                 raw_datasets = [
                     {'data': data_1, 'label': 'difference_1'},
