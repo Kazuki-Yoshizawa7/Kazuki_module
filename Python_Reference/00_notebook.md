@@ -25,7 +25,7 @@
   Plotting の裏技：
   どのようにしてレイアウトを作るか
 
-  '''python
+  ```python
      def auto_subplots(n, n_cols=3, figsize_per=(4, 3)):
        n_rows = math.ceil(n / n_cols)
        fig, axes = plt.subplots(
@@ -43,7 +43,7 @@
        ax.plot(data[i])
        ax.set_title(f"Plot {i}")
    plt.tight_layout()
-  '''
+  ```
 
 
   - math.ceil()
